@@ -1,0 +1,30 @@
+name: Docker PR Tests
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - 'development'
+  push:
+    branches:
+      - 'test-docker-workflow'  # Add your test branch here
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Build Docker image
+        run: docker build -t eventyay/eventyay-talk:test .
+      
+      - name: Run tests
+        run: docker run eventyay/eventyay-talk:test bash -c "pytest"
