@@ -18,10 +18,10 @@ jobs:
         uses: actions/checkout@v2  # Updated to version 2
       
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3  # Updated to the latest version compatible with Node.js 20
+        uses: docker/setup-qemu-action@v2  # Corrected version to v2
       
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3  # Updated to the latest version compatible with Node.js 20
+        uses: docker/setup-buildx-action@v2  # Corrected version to v2
       
       - name: Build Docker image
         run: docker build -t eventyay/eventyay-talk:test .
