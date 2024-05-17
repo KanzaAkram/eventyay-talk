@@ -28,6 +28,6 @@ jobs:
         run: docker build -t eventyay-talk:${{ github.sha }} .
 
       - name: Run tests
-        run: docker run eventyay-talk:${{ github.sha }} bash -c "pytest"
+        run: docker run eventyay-talk:${{ github.sha }} sh -c "pytest"
 
         
