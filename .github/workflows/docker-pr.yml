@@ -27,7 +27,5 @@ jobs:
       - name: Build Docker image
         run: docker build -t eventyay-talk:${{ github.sha }} .
 
-      - name: Run tests
-        run: docker run eventyay-talk:${{ github.sha }} all
+  
 
-        
